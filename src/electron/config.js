@@ -20,7 +20,7 @@ export default () => {
     show: true,
     autoHideMenuBar: true,
     icon: path.resolve(__dirname + ImagePath + '/icon.png'),
-    title: app.getName(),
+    title: 'Qobuz',
     webPreferences: {
       nodeIntegration: true,    
       contextIsolation: false,
@@ -28,7 +28,7 @@ export default () => {
     },
     version : app.getVersion(),
     settings : new Config(),
-
+    backgroundColor: '#000000',
   };
   return baseConfig;
 };
