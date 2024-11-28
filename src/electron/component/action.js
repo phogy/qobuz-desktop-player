@@ -13,8 +13,8 @@ export default class Action {
         this.quitPlayer = this.quitPlayer.bind(this);
         this.clickNotification = this.clickNotification.bind(this);
 
-        this.play = { label: 'play', type: 'normal', click: this.clickPlayer.bind(this, "pct-player-play") };
-        this.pause = { label: 'pause', type: 'normal', click: this.clickPlayer.bind(this, "pct-player-pause") };
+        this.play = { label: 'Play', type: 'normal', click: this.clickPlayer.bind(this, "pct-player-play") };
+        this.pause = { label: 'Pause', type: 'normal', click: this.clickPlayer.bind(this, "pct-player-pause") };
         this.previous = { label: 'Previous Track', type: 'normal', click: this.clickPlayer.bind(this, "pct-player-prev") };
         this.next = { label: 'Next Track', type: 'normal', click: this.clickPlayer.bind(this, "pct-player-next") };
         this.quit = { label: 'Quit', type: 'normal', click: this.quitPlayer };
