@@ -29,6 +29,14 @@ function createWindow() {
     // Open the DevTools.
     //mainWindow.webContents.openDevTools()
 
+    mainWindow.on('app-command', (e, cmd) => {
+        if (cmd === 'browser-backward') {
+            mainWindow.webContents.send('navigate-back');
+        } else if (cmd == 'browser-forward') {
+            mainWindow.webContents.send('navigate-forward');
+        }
+    })
+
     // Emitted when the window is closed.
     mainWindow.on('close', function (e) {
         if (willQuitApp) {

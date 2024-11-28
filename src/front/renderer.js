@@ -15,8 +15,20 @@ ipcRenderer.on('player:notification', function (event, message) {
     webview.send('player:notification', message);
 });
 
+ipcRenderer.on('navigate-back', () => {
+    if (webview.canGoBack()) {
+        webview.goBack();
+    }
+});
+
+ipcRenderer.on('navigate-forward', () => {
+    if (webview.canGoForward()) {
+        webview.goForward();
+    }
+});
+
 // on quit : reload to save last state
-ipcRenderer.on('player:quit', () => {  
-   webview.reload();   
+ipcRenderer.on('player:quit', () => {
+    webview.reload();
 });
 
