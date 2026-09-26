@@ -8,7 +8,8 @@
     "postinstall": "install-app-deps",
     "start": "electron .",
     "pack": "build --dir",
-    "release": "build"
+    "release": "build",
+    "build": "electron-builder"
   },
   "repository": "https://github.com/nlarche/qobuz-desktop-player",
   "keywords": [
@@ -34,17 +35,16 @@
   },
   "build": {
     "appId": "nlarche.qobuz.desktop.player",
-    "mac": {
-      "category": "public.app-category.music"
-    },
-    "win": {
-      "iconUrl": "http://eatodo.s3.amazonaws.com/icon.ico"
-    },
+    "productName": "Qobuz",
     "linux": {
       "target": [
-        "AppImage",
         "deb"
-      ]
+      ],
+      "category": "AudioVideo",
+      "desktop": {
+        "StartupWMClass": "Qobuz Desktop player"
+      },
+      "icon": "src/assets/linux/icon.png"
     }
   }
 }

@@ -10,8 +10,6 @@ import Action from './component/action';
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow;
-let tray;
-let willQuitApp = false;
 
 function createWindow() {
 
@@ -39,20 +37,11 @@ function createWindow() {
 
     // Emitted when the window is closed.
     mainWindow.on('close', function (e) {
-        if (willQuitApp) {
-            /* the user tried to quit the app */
-            mainWindow = null;
-
-        } else {
-            /* the user only tried to close the window */
-            e.preventDefault();
-            mainWindow.hide();
-        }
+        mainWindow = null
     })
 
     const action = new Action(mainWindow, config);
 
-    tray = appTray(config, action);
     appMenu(config, action);
 
 }
@@ -80,7 +69,7 @@ app.on('activate', function () {
 })
 
 // the user quit the app : app.quit()
-app.on('before-quit', () => willQuitApp = true);;
+// app.on('before-quit', () => willQuitApp = true);;
 
 
 // In this file you can include the rest of your app's specific main process

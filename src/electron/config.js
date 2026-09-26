@@ -5,11 +5,6 @@ import Config  from 'electron-config';
 export default () => {
   const screenSize = screen.getPrimaryDisplay().workAreaSize;
 
-  const platform = process.platform;
-  const env = platform === 'darwin' ? 'mac' : platform === 'win32' ? 'win' : 'linux';
-
-  const ImagePath = '/../assets/' + env;
-
   const defaultHeight = (screenSize.height * 3) / 4;
   const defaultWidth = (screenSize.width * 3) / 4;
 
@@ -19,7 +14,7 @@ export default () => {
     center: true,
     show: true,
     autoHideMenuBar: true,
-    icon: path.resolve(__dirname + ImagePath + '/icon.png'),
+    icon: path.resolve(__dirname, 'linux/icon.png'),
     title: 'Qobuz',
     webPreferences: {
       nodeIntegration: true,    
